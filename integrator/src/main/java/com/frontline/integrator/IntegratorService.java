@@ -10,15 +10,13 @@ import java.util.List;
 public class IntegratorService {
 
 
-
-    public int integrateValues(List<Long> values){
+    public int integrateValues(List<Long> values) {
         int sum = getAdderResult(values);
         int mul = getMultiplicatorResult(values);
         return sum*mul;
     }
 
-    public int getAdderResult(List<Long> values){
-        //TODO: Call the Adder and get the result
+    public int getAdderResult(List<Long> values) {
 
         final String uri = "http://localhost:8081/api/adder";
 
@@ -28,11 +26,18 @@ public class IntegratorService {
         ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);
 
         System.out.println(result);
-        return 0;
+        return Integer.parseInt(result.getBody());
     }
 
-    public int getMultiplicatorResult(List<Long> values){
-        //TODO: Call the Multiplicator and get the result
-        return 0;
+    public int getMultiplicatorResult(List<Long> values) {
+        final String uri = "http://localhost:8080/api/multiplicater";
+
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<List<Long>> request = new HttpEntity<>(values);
+
+        ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);
+
+        System.out.println(result);
+        return Integer.parseInt(result.getBody());
     }
 }
