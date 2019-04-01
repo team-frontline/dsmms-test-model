@@ -30,7 +30,7 @@ public class IntegratorService {
     }
 
     public int getMultiplicatorResult(List<Long> values) {
-        final String uri = "http://localhost:8080/api/multiplicater";
+        final String uri = "http://localhost:8083/api/multiplicater";
 
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<List<Long>> request = new HttpEntity<>(values);

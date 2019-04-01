@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/multiplicator")
+@RequestMapping("api/multiplicater")
 public class MultiplicatorController {
     @Autowired
     private MultiplicatorService multiplicatorService;
